@@ -8,7 +8,7 @@
 - java
 - python3
 - pypy3 (tùy chọn)
-- 
+
 ```
 sudo apt update
 sudo apt upgrade
