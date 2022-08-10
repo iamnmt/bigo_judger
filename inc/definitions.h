@@ -10,6 +10,7 @@
 #define JUDGE_DIR            "./judge/"
 #define JUDGE_COMPILE_ERRORS ("./judge/compile_errors_" + std::to_string(std::this_thread::get_id()))
 #define JUDGE_OUTPUT         ("./judge/output_" + std::to_string(std::this_thread::get_id()))
+#define JUDGE_STDERR         ("./judge/stderr_" + std::to_string(std::this_thread::get_id()))
 #define JUDGE_RUNTIME_ERROR  ("./judge/runtime_error_" + std::to_string(std::this_thread::get_id()))
 #define JUDGE_BIN            "./judge/bin/"
 
@@ -22,5 +23,7 @@
 #define DEFAULT_TEST_PATH        "TestData/"
 #define DEFAULT_INPUT_EXTENSION  "in"
 #define DEFAULT_ANSWER_EXTENSION "ans"
+
+#define EXIT_TIMEOUT 124
 
 #endif

@@ -6,11 +6,15 @@
 - make
 - g++
 - java
+- python3
+- pypy3 (tùy chọn)
+- 
 ```
 sudo apt update
 sudo apt upgrade
 sudo apt install make g++ default-jdk
 ```
+
 Với **Windows** cần cài Ubuntu (app Ubuntu thôi chứ không phải nguyên cái hệ điều hành nha) trước rồi cài thêm mấy cái ở trên.
 
 ## 2. Cài judge tool
@@ -103,3 +107,4 @@ judge -h
 |-A answer\_extension| Nếu answer không có đuôi mặc định là *.ans* thì thêm cái này. Ví dụ '-A out' |
 |-O options | Option cho checker |
 |-p path | Set thư mục làm việc (nhưng chắc không ai xài cái này đâu) |
+|-P| Chỉ định chạy file python bằng pypy3 |

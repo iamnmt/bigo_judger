@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 
 struct RunResult {
-    bool timeout;
+    int exit_code;
     double time;
     std::string error;
 };

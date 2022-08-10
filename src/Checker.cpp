@@ -28,12 +28,12 @@ std::string Checker::check(const std::string& in, const std::string& out, const 
 }
 
 TestResult Checker::judge(const Solution& sol, const Test& test) const {
-    RunResult run_result = sol.run(test.in(), JUDGE_OUTPUT);
+    RunResult run_result = sol.run(test.in(), JUDGE_OUTPUT, JUDGE_STDERR);
 
-    if (run_result.timeout && run_result.error == "") {
+    if (run_result.exit_code == EXIT_TIMEOUT) {
         return {Verdict::TLE, run_result.time, ""};
     }
-    else if (run_result.error != "") {
+    else if (run_result.exit_code != 0) {
         return {Verdict::RE, run_result.time, run_result.error};
     }
     else {

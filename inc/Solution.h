@@ -9,8 +9,8 @@ struct Solution {
     std::string raw;
     std::string ext;
     Solution();
-    Solution(const std::string& filename, double time_out = 1);
+    Solution(const std::string& filename, double time_out = 1, bool use_pypy = false);
     virtual CompileResult compile() const;
-    RunResult run(const std::string& in, const std::string& out) const;
+    RunResult run(const std::string& in, const std::string& out, const std::string& err) const;
 };
 #endif
