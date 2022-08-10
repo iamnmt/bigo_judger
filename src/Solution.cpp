@@ -55,7 +55,7 @@ RunResult Solution::run(const std::string& in, const std::string& out, const std
     auto ret = fgets(buff, BUFF_SIZE - 1, fp);
     auto time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - start).count();
 
-    int exit_code = pclose(fp) / 256;
+    int exit_code = pclose(fp) >> 8;
 
     std::string error;
     fp = fopen(err.data(), "rt");

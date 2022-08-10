@@ -18,8 +18,22 @@ sudo apt install make g++ default-jdk
 Với **Windows** cần cài Ubuntu (app Ubuntu thôi chứ không phải nguyên cái hệ điều hành nha) trước rồi cài thêm mấy cái ở trên.
 
 ## 2. Cài judge tool
+
+Download source code:
+
+- Với version 1:
 ```
 git clone https://github.com/baosws/bigo_judger
+```
+
+- Với version 2:
+```
+git clone https://github.com/nxphuc/bigo_judger
+```
+
+Sau đó thực hiện cài đặt:
+
+```
 cd bigo_judger
 make
 make install
