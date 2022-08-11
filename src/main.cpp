@@ -17,13 +17,14 @@
 #include "DiffChecker.h"
 #include "Checker.h"
 #include "Test.h"
+#include "DefaultChecker.h"
 
 #include "definitions.h"
 
 extern configer::configer bconf;
 
 cxxopts::Options get_options(int nargs, char* argv[]) {
-    cxxopts::Options opt(argv[0]);
+    cxxopts::Options opt(argv[0], PROGRAM_DESCRIPTION);
 
     opt.add_options()
         ("t,time", "time limit in seconds", cxxopts::value<double>()->default_value("1.0"))
@@ -234,10 +235,11 @@ int main(int nargs, char* argv[]) {
 
     std::map<std::string, SolutionResult> sol_results;
     Checker* checker = bconf.get<std::string>("checker") == "" ?
-                      new DiffChecker()
-                      : new Checker(bconf.get<std::string>("checker"),
-                              bconf.get<double>("time_limit"),
-                              bconf.get<std::string>("checker_options"));
+                        new DefaultChecker(bconf.get<std::string>("checker_options"))
+                        : new Checker(bconf.get<std::string>("checker"),
+                                        bconf.get<double>("time_limit"),
+                                        bconf.get<std::string>("checker_options")
+                                    );
 
     compile_and_judge(sol_results, tests, *checker);
     print_compile_results(sol_results, *checker);

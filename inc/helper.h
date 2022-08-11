@@ -34,5 +34,9 @@ namespace helper {
     void make_dir(const std::string& dir);
     void make_dirs();
     void clean();
+
+    bool is_float(const char* s, flt &val);
+    bool is_int(const char* s, int& val);
+    int equal(flt f1, flt f2, flt float_abs_tol, flt float_rel_tol);
 }
 #endif

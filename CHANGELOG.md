@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.2] - 2022-08-11
+
+- Thay đổi default check từ DiffChecker (diff command) thành DefaultChecker (compare.cc trên domjudge)
+- Cho phép so sánh theo một số tham số mặc định
+
 ## [2.0] - 2022-08-10
 
 ### Added:

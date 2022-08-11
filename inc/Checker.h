@@ -10,6 +10,8 @@
 struct Checker: Solution {
     Checker();
     Checker(const std::string& filename, double timeout, const std::string& options = "");
+
+    virtual int compare(const std::string& in, const std::string& out, const std::string& ans) const;
     virtual CompileResult compile() const;
     virtual std::string check(const std::string& in, const std::string& out, const std::string& ans) const;
 

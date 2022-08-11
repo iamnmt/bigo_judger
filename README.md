@@ -99,6 +99,15 @@ judge Solution.* -T data -t 0.01
 ```
 ![](img/img6.png "Nhìn hơi vô lý nhưng lại rất thuyết phục")
 
+- Chấm với checker mặc định và option
+
+Đối với checker mặc định, có 5 option có thể sử dụng (xem chi tiết mục 4). Ví dụ cần chạy so sánh với sai số không vượt quá $10^{-6}$:
+
+```
+judge -T TestData -s Solution.* -t 1 -O "float_tolerance 1e-6"
+```
+![](img/img8.png)
+
 - Chấm với checker: **-C <tên checker>**
 ```
 judge Solution.* -T data -C checker.cpp
@@ -119,6 +128,10 @@ judge -h
 |--------|---------|
 |-I input\_extention| Nếu input không có đuôi mặc định là *.in* thì thêm cái này. Ví dụ '-I inp' |
 |-A answer\_extension| Nếu answer không có đuôi mặc định là *.ans* thì thêm cái này. Ví dụ '-A out' |
-|-O options | Option cho checker |
+|-O options | Option cho checker. Nếu là custom checker thì tùy mình quy định ứng với code checker. Nếu sử dụng checker mặc định, sẽ có các tham số sau: <br> <ul> <li><i>case_sensitive</i>: phân biệt hoa thường</li> <li><i>space_change_sensitive</i>: kiểm tra chính xác số lượng khoảng trắng giữa các pattern</li> <li><i>float_absolute_tolerance x</i>: so sánh số thực với sai số tuyệt đối cho phép là x: $\lvert team - judge \rvert \leq x$</li> <li><i>float_relative_tolerance x</i>: so sánh số thực với sai số tương đối cho phép là x: $\frac{\lvert team - judge \rvert}{judge} \leq x$</li> <li><i>float_tolerance x</i>: so sánh số thực với sai số tuyệt đối và tuyệt đối, chỉ cần 1 điều kiện thỏa mãn là được </li></ul> Ví dụ: *-O \"case_sensitive float_tolerance 1e-6\"* sẽ chấm số thực với sai số cho phép là 1e-6 và kiểm tra phân biệt hoa thường |
 |-p path | Set thư mục làm việc (nhưng chắc không ai xài cái này đâu) |
 |-P| Chỉ định chạy file python bằng pypy3 |
+
+## 5. TODO
+
+- Cho phép chấm interactive problem

@@ -11,6 +11,7 @@ OBJ=$(OBJDIR)/main.o \
 	$(OBJDIR)/Checker.o \
 	$(OBJDIR)/CompileResult.o \
 	$(OBJDIR)/DiffChecker.o \
+	$(OBJDIR)/DefaultChecker.o \
 	$(OBJDIR)/JudgeResult.o \
 	$(OBJDIR)/RunResult.o \
 	$(OBJDIR)/Solution.o \
@@ -23,6 +24,7 @@ HEADERS=$(INCDIR)/Checker.h \
 		$(INCDIR)/CompileResult.h \
 		$(INCDIR)/configer.h \
 		$(INCDIR)/DiffChecker.h \
+		$(INCDIR)/DefaultChecker.h \
 		$(INCDIR)/helper.h \
 		$(INCDIR)/JudgeResult.h \
 		$(INCDIR)/presentation.h \

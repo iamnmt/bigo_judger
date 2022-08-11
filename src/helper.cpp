@@ -83,4 +83,41 @@ namespace helper {
         fclose(popen("rm -rf " JUDGE_DIR " 2> /dev/null", "r"));
         fclose(popen("rm -R __pycache__ 2> /dev/null", "r"));
     }
+
+    // https://github.com/DOMjudge/domjudge/blob/main/sql/files/defaultdata/compare/compare.cc
+    bool is_float(const char* s, flt& val) {
+        char trash[20];
+        flt v;
+        if (sscanf(s, "%Lf%10s", &v, trash) != 1)
+            return false;
+        val = v;
+        return true;
+    }
+
+    bool is_int(const char* s, int& val) {
+        char trash[20];
+        int v;
+        if (sscanf(s, "%d%10s", &v, trash) != 1)
+            return false;
+        val = v;
+        return true;
+    }
+
+    int equal(flt f1, flt f2, flt float_abs_tol, flt float_rel_tol) {
+        flt absdiff, reldiff;
+        /* Finite values are compared with some tolerance */
+        if ( std::isfinite(f1) && std::isfinite(f2) ) {
+            absdiff = fabsl(f1-f2);
+            reldiff = fabsl((f1-f2)/f2);
+            return !(absdiff > float_abs_tol && reldiff > float_rel_tol);
+        }
+        /* NaN is equal to NaN */
+        if ( std::isnan(f1) && std::isnan(f2) ) return 1;
+        /* Infinite values are equal if their sign matches */
+        if ( std::isinf(f1) && std::isinf(f2) ) {
+            return std::signbit(f1) == std::signbit(f2);
+        }
+        /* Values in different classes are always different. */
+        return 0;
+    }
 }

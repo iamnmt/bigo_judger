@@ -1,6 +1,11 @@
 #ifndef DEFINES
 #define DEFINES
 
+// program name
+#define PROGRAM_VERSION "2.1"
+#define PROGRAM_NAME "Big-O Local Judger"
+#define PROGRAM_DESCRIPTION PROGRAM_NAME " " PROGRAM_VERSION "\n"
+
 // judge's directories
 
 #define JUDGE_FEEDBACK       ("./judge/" + std::to_string(std::this_thread::get_id()))
@@ -24,6 +29,10 @@
 #define DEFAULT_INPUT_EXTENSION  "in"
 #define DEFAULT_ANSWER_EXTENSION "ans"
 
-#define EXIT_TIMEOUT 124
+const int EXIT_TIMEOUT = 124;
+const int EXIT_AC      = 42;
+const int EXIT_WA      = 43;
+
+typedef long double flt;
 
 #endif
