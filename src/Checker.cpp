@@ -10,7 +10,13 @@ Checker::Checker(const std::string& filename, double timeout, const std::string&
     if (ext == "cpp" || ext == "cc") {
         run_command = JUDGE_BIN "\"" + raw + "\"";
     } else if (ext == "py") {
-        run_command = "pypy3 \"" + filename + "\"";
+        run_command = "pypy3 --version";
+        int exit_code = pclose(popen(run_command.data(), "r")) >> 8;
+        if (exit_code == PCLOSE_ERROR) {
+            run_command = "python3 \"" + filename + "\"";
+        } else {
+            run_command = "pypy3 \"" + filename + "\"";
+        }
     } else {
         throw std::runtime_error("Not supported checker extension: " + ext + "\n");
     }

@@ -32,6 +32,7 @@
 const int EXIT_TIMEOUT = 124;
 const int EXIT_AC      = 42;
 const int EXIT_WA      = 43;
+const int PCLOSE_ERROR = 127;
 
 typedef long double flt;
 
